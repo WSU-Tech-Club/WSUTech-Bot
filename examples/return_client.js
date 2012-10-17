@@ -4,8 +4,6 @@ PubSub.start(5050)
 
 net = PubSub.connect(5050);
 
-
-
 net.subscribe('foo', 'data', function (topic, pipe, data) {
     console.log(topic, pipe, data)
 });
