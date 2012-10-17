@@ -1,0 +1,29 @@
+var PubSub  = require("./pubsub/pubsub")
+var IRC     = require("irc")
+
+var distrobot = exports
+
+
+distrobot.start = function (options, port) {
+    
+    options.userName              = options.userName              || 'nodebot'
+    options.realName              = options.realName              || 'nodeJS IRC client'
+    options.port:                 = options.port                  || 6667
+    options.debug:                = options.debug                 || false
+    options.showErrors:           = options.showErrors            || false
+    options.autoRejoin:           = options.autoRejoin            || true
+    options.autoConnect:          = options.autoConnect           || true
+    options.channels:             = options.channels              || ['#WSUTech']
+    options.secure:               = options.secure                || false
+    options.selfSigned:           = options.selfSigned            || false
+    options.certExpired:          = options.certExpired           || false
+    options.floodProtection:      = options.floodProtection       || false
+    options.floodProtectionDelay: = options.floodProtectionDelay  || 1000
+    options.stripColors:          = options.stripColors           || false
+
+    var client = new IRC.client(options.server, options.nick, options);
+    
+    PubSub.start( port || 5050 );
+
+}
+
