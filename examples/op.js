@@ -37,6 +37,11 @@ PubSub.connect(5050, function (net) {
             var parts = data.text.split(' ')
             var command = parts.shift()
 
+            var respond_to = data.to
+           
+            if ( respond_to[0] != '#' )
+                respond_to = data.nick
+
             switch(command)
             {
                 case '!autoop':
@@ -44,14 +49,14 @@ PubSub.connect(5050, function (net) {
                     usernames.push(nick)
                 break;
                 case '!autooplist':
-                    net.publish('client', 'say', {target: data.to, message: 'I will autoop the following users: ' + usernames.join(', ')})
+                    net.publish('client', 'say', {target: respond_to, message: 'I will autoop the following users: ' + usernames.join(', ')})
                 break;
             }
 
         }
         else
         {
-            net.publish('client', 'say', {target: data.to, message: 'Wooh Woooh there buddy, I don\'t know you that well.'})
+            net.publish('client', 'say', {target: respond_to, message: 'Wooh Woooh there buddy, I don\'t know you that well.'})
         }
     
     })
@@ -60,5 +65,5 @@ PubSub.connect(5050, function (net) {
     // Publish a loaded message
     //
 
-    //net.publish('client', 'say', {target: "#wsutech", message: "! - [Plugin][Loaded] | Op Example"});
+    net.publish('client', 'say', {target: "#wsutech", message: "! - [Plugin][Loaded] | Op Example"});
 });
