@@ -1,4 +1,4 @@
-PubSub = require('./lib/pubsub/pubsub') 
+PubSub = require('../lib/pubsub/pubsub') 
 PubSub.connect(5050, function (net) {
 
     net.subscribe('event', 'message', function (topic, pipe, data) {

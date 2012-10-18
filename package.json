@@ -7,7 +7,7 @@
 	],
 	"repository": {
 		"type": "git",
-		"url": "http://github.com/WSU-Tech-Club/DistroBot.git"
+		"url": "http://github.com/WSU-Tech-Club/WSUTech-Bot.git"
 	},
 	"keywords": ["irc", "bot"],
 	"dependencies": {
