@@ -1,6 +1,12 @@
 PubSub = require('../lib/pubsub/pubsub') 
 PubSub.connect(5050, function (net) {
 
+    net.subscribe('event', 'error', function (topic, pipe, data) {
+
+        console.log(topic, pipe, data);
+
+    })
+
     //
     //  Subscribe to the join event
     //
