@@ -71,4 +71,5 @@ PubSub.connect(5050, function (net) {
     //
 
     net.publish('client', 'say', {target: "#wsutech", message: "! - [Plugin][Loaded] | Op Example"});
+
 });
