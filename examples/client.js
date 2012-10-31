@@ -1,5 +1,5 @@
 PubSub = require('../lib/pubsub/pubsub') 
-PubSub.connect({}, function (net) {
+PubSub.connect({host:'twilio.nints.com', port: 5060}, function (net) {
 
     net.subscribe('event', 'message', function (topic, pipe, data) {
         console.log(topic, pipe, data)
