@@ -1,5 +1,5 @@
 PubSub = require('../lib/pubsub/pubsub') 
-PubSub.connect(5050, function (net) {
+PubSub.connect({}, function (net) {
 
     net.subscribe('event', 'message', function (topic, pipe, data) {
         console.log(topic, pipe, data)

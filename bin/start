@@ -2,7 +2,7 @@ var DistroBot = require("../lib/distrobot").bot
 
 var distrobot = new DistroBot({
         server      : 'irc.freenode.net'
-    ,   nick        : 'WSUTech'
+    ,   nick        : 'JoJoBill'
     ,   channels    : ['#WSUTech']
 });
 
